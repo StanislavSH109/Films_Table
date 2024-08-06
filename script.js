@@ -13,10 +13,10 @@ function handleFormSubmit(e) {
         isWatched
     }
 
-    addFilmToLocaleStorage()
+    addFilmToLocaleStorage(film)
 }
 
-function addFilmToLocaleStorage() {
+function addFilmToLocaleStorage(film) {
     const films = JSON.parse(localStorage.getItem('films')) || [];
     films.push(film)
     localStorage.setItem('films', JSON.stringify(films));
@@ -29,12 +29,12 @@ function renderTable() {
     const filmTableBody = document.querySelector('#film-tbody');
     filmTableBody.innerHTML = "";
 
-    films.forEach((film) {
+    films.forEach((film) => {
         const row = document.createElement('tr');
         row.innerHTML = `
 
             <td>${film.title}</td>
-            <td>${film.genre}</td>      
+            <td>${film.genre}</td>
             <td>${film.releaseYear}</td>
             <td>${film.isWatched ? "Да" : "Нет"}</td>
         `;
