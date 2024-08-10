@@ -1,19 +1,25 @@
-const films = { 
-    title,
-    genre,
-    releaseYear,
-}
+const buttonSubmit = document.querySelector('#film-form');
 
-films.title = 'Matrix';
-films.genre =  'Action';
-films.releaseYear = '1999';
+buttonSubmit.addEventListener('submit', (evt) => {
+    evt.preventDefault()
+    
+    let films = { 
+        title,
+        genre,
+        releaseYear,
+    }
 
-const dataJS = JSON.stringify(films); // {"title":"Matrix","genre":"Action","releaseYear":"1999"}
-// ; // устанавливает ключ в localeStorage 'FILMS' и подставляет данные из dataJS
-const parseJS = JSON.parse(localStorage.getItem('FILMS')) || [];
-parseJS.push(films)
-console.log(parseJS);
-localStorage.setItem('FILMS', JSON.stringify(parseJS))
+    const titleElement = document.querySelector('#title').value;
+    const genreElement = document.querySelector('#genre').value;
+    const yearElement = document.querySelector('#releaseYear').value;
+
+    films.title = titleElement;
+    films.genre = genreElement;
+    films.releaseYear = yearElement;
+    console.log(films);
+});
+
+
 
 // function handleFormSubmit(e) {
 //     e.preventDefault();
@@ -30,7 +36,6 @@ localStorage.setItem('FILMS', JSON.stringify(parseJS))
 //         isWatched
 //     }
 
-//     console.log(film.title);
 
 //     addFilmToLocaleStorage(film)
 // }

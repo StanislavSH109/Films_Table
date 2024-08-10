@@ -65,3 +65,18 @@ th {
 td {
   vertical-align: top;
 }
+
+.button {
+  border: 0;
+  border-radius: 8px;
+  padding: 14px;
+  color: #f4f4f4;
+  background-color: #444;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}
+
+.button:hover {
+  background-color: green;
+  transition: .3s;
+}
