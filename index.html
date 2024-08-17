@@ -19,12 +19,14 @@
       <button type="submit" class="button">Добавить фильм</button>
     </form>
     <table id="film-table">
-      <select class="sort" name="sortFilms" id="selectSort">
-        <option value="choice" disabled="true" label="Сортировать" selected></option>
-        <option value="name">По названию фильма</option>
-        <option value="year">По году выпуска</option>
-        <option value="genre">По жанру</option>
-      </select>
+      <div class="sort-form">
+        <select class="sort" name="sortFilms" id="selectSort">
+          <option value="name">По названию фильма</option>
+          <option value="year">По году выпуска</option>
+          <option value="genre">По жанру</option>
+        </select>
+        <button class="sort-button" type="submit">Сортировать</button>
+      </div>
       <thead>
         <tr>
           <th>Название</th>

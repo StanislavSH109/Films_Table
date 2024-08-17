@@ -90,13 +90,30 @@ td {
   opacity: 1;
 }  
 
+.sort-form {
+  display: flex;
+  gap: 10px;
+}
+
 .sort {
   padding: 10px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 22px;
   font-weight: 400;
   font-family: "Verdana", "Arial", sans-serif;
   cursor: pointer;
   margin: 0 0 5px 0;
+
 }
 
+.sort-button {
+  padding: 10px;
+  background-color: white;
+  font-size: 14px;
+  line-height: 22px;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 130px;
+  cursor: pointer;
+  margin: 0 0 5px 0;
+}
