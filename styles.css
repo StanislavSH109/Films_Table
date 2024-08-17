@@ -79,4 +79,24 @@ td {
 .button:hover {
   background-color: green;
   transition: .3s;
+  box-shadow: 1px 1px 10px 0 #444;
 }
+
+.checkbox-text {
+  opacity: 0.5;
+}
+
+#isWatched:checked ~.checkbox-text {
+  opacity: 1;
+}  
+
+.sort {
+  padding: 10px;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+  font-family: "Verdana", "Arial", sans-serif;
+  cursor: pointer;
+  margin: 0 0 5px 0;
+}
+

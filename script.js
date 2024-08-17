@@ -1,74 +1,52 @@
-const buttonSubmit = document.querySelector('#film-form');
+function handleFormSubmit(e) {
+    e.preventDefault();
+    const title = document.querySelector('#title').value;
+    const genre = document.querySelector('#genre').value;
+    const releaseYear = document.querySelector('#releaseYear').value;
+    const isWatched = document.querySelector('#isWatched').checked;
 
-buttonSubmit.addEventListener('submit', (evt) => {
-    evt.preventDefault()
-    
-    let films = { 
+
+    const film = {
         title,
         genre,
         releaseYear,
+        isWatched
     }
 
-    const titleElement = document.querySelector('#title').value;
-    const genreElement = document.querySelector('#genre').value;
-    const yearElement = document.querySelector('#releaseYear').value;
 
-    films.title = titleElement;
-    films.genre = genreElement;
-    films.releaseYear = yearElement;
-    console.log(films);
-});
+    addFilmToLocaleStorage(film)
+}
 
 
+function addFilmToLocaleStorage(film) {
+    const films = JSON.parse(localStorage.getItem('films')) || [];
+    films.push(film)
+    localStorage.setItem('films', JSON.stringify(films));
+    
+    renderTable();
+}
 
-// function handleFormSubmit(e) {
-//     e.preventDefault();
-//     const title = document.querySelector('#title').value;
-//     const genre = document.querySelector('#genre').value;
-//     const releaseYear = document.querySelector('#releaseYear').value;
-//     const isWatched = document.querySelector('#isWatched').checked;
+function renderTable() {
+    const films = JSON.parse(localStorage.getItem('films')) || [];
+    const filmTableBody = document.querySelector('#film-tbody');
+    console.log(films[0]);
+    filmTableBody.innerHTML = "";
 
+    films.forEach((film) => {
+        const arrayUserInput = Object.values(film);
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${film.title}</td>
+            <td>${film.genre}</td>
+            <td>${film.releaseYear}</td>
+            <td>${film.isWatched ? "Да" : "Нет"}</td>    
+        `;
 
-//     const film = {
-//         title,
-//         genre,
-//         releaseYear,
-//         isWatched
-//     }
+        filmTableBody.appendChild(row);
+    });
+}
 
-
-//     addFilmToLocaleStorage(film)
-// }
-
-
-// function addFilmToLocaleStorage(film) {
-//     const films = JSON.parse(localStorage.getItem('films')) || [];
-//     films.push(film)
-//     localStorage.setItem('films', JSON.stringify(films));
-
-//     renderTable();
-// }
-
-// function renderTable() {
-//     const films = JSON.parse(localStorage.getItem('films')) || [];
-//     const filmTableBody = document.querySelector('#film-tbody');
-//     filmTableBody.innerHTML = "";
-
-//     films.forEach((film) => {
-//         const row = document.createElement('tr');
-//         row.innerHTML = `
-
-//             <td>${film.title}</td>
-//             <td>${film.genre}</td>
-//             <td>${film.releaseYear}</td>
-//             <td>${film.isWatched ? "Да" : "Нет"}</td>
-//         `;
-
-//         filmTableBody.appendChild(row);
-//     });
-// }
-
-// document.querySelector('#film-form').addEventListener("submit", handleFormSubmit);
+document.querySelector('#film-form').addEventListener("submit", handleFormSubmit);
 
 
-// renderTable();
+renderTable();
