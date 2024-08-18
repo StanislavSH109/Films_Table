@@ -5,11 +5,11 @@
   <body>
     <form id="film-form">
       <label for="title">Название:</label>
-      <input type="text" id="title" name="title"/>
+      <input type="text" id="title" name="title"/ required>
       <label for="genre">Жанр:</label>
-      <input type="text" id="genre" name="genre"/>
+      <input type="text" id="genre" name="genre"/ required>
       <label for="releaseYear">Год:</label>
-      <input type="text" id="releaseYear" name="releaseYear"/>
+      <input type="text" id="releaseYear" name="releaseYear"/ required>
       <label for="isWatched">
         <input type="checkbox" id="isWatched" name="isWatched" />
         <span class="checkbox-text">Успели посмотреть?</span>
@@ -18,15 +18,16 @@
       <!-- <input type="submit" value="Submit"> -->
       <button type="submit" class="button">Добавить фильм</button>
     </form>
+    <div class="sort-form">
+      <select class="sort" name="sortFilms" id="selectSort">
+        <option value="name">По названию фильма</option>
+        <option value="year">По году выпуска</option>
+        <option value="genre">По жанру</option>
+        <option value="watched">По просмотренным</option>
+      </select>
+      <button class="sort-button" type="button">Сортировать</button>
+    </div>
     <table id="film-table">
-      <div class="sort-form">
-        <select class="sort" name="sortFilms" id="selectSort">
-          <option value="name">По названию фильма</option>
-          <option value="year">По году выпуска</option>
-          <option value="genre">По жанру</option>
-        </select>
-        <button class="sort-button" type="submit">Сортировать</button>
-      </div>
       <thead>
         <tr>
           <th>Название</th>

@@ -29,7 +29,11 @@ function addFilmToLocaleStorage(film) {
 function renderTable() {
     const films = JSON.parse(localStorage.getItem('films')) || [];
     const filmTableBody = document.querySelector('#film-tbody');
-    console.log(films[0]);
+    const editButton = document.createElement('button');
+    const deleteButton = document.createElement('button');
+    editButton.textContent = 'Редактировать';
+    deleteButton.textContent = 'Удалить';
+
     filmTableBody.innerHTML = "";
 
     films.forEach((film) => {
@@ -39,7 +43,11 @@ function renderTable() {
             <td>${film.title}</td>
             <td>${film.genre}</td>
             <td>${film.releaseYear}</td>
-            <td>${film.isWatched ? "Да" : "Нет"}</td>    
+            <td>${film.isWatched ? "Да" : "Нет"}</td>
+            <td class="buttons-action">
+            <button class="edit-film">Редактировать</button>
+            <button class="remove-film">Удалить</button>
+            </td>
         `;
 
         filmTableBody.appendChild(row);
@@ -47,6 +55,33 @@ function renderTable() {
 }
 
 document.querySelector('#film-form').addEventListener("submit", handleFormSubmit);
-
-
 renderTable();
+
+const sortButton =  document.querySelector('.sort-button');
+
+sortButton.addEventListener('click', () => {
+    const films = JSON.parse(localStorage.getItem('films'));
+    const selectForm = document.querySelector('#selectSort');
+    const sortBy = selectForm.value;
+
+    if (sortBy === 'year') {
+        films.sort((a, b) => a.releaseYear - b.releaseYear);
+        localStorage.setItem('films', JSON.stringify(films));
+        renderTable();
+
+    } else if (sortBy === 'name') {
+        films.sort((a, b) => a.title.localeCompare(b.title));
+        localStorage.setItem('films', JSON.stringify(films));
+        renderTable();
+
+    } else if (sortBy === 'genre') {
+        films.sort((a, b) => a.genre.localeCompare(b.genre));
+        localStorage.setItem('films', JSON.stringify(films));
+        renderTable();
+
+    } else if (sortBy === 'watched') {
+        films.sort((a, b) => b.isWatched - a.isWatched);
+        localStorage.setItem('films', JSON.stringify(films));
+        renderTable();
+    }
+});

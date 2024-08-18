@@ -90,6 +90,11 @@ td {
   opacity: 1;
 }  
 
+#film-tbody td, th {
+  vertical-align: unset;
+  text-align: center;
+}
+
 .sort-form {
   display: flex;
   gap: 10px;
@@ -116,4 +121,18 @@ td {
   width: 130px;
   cursor: pointer;
   margin: 0 0 5px 0;
+}
+
+.buttons-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.edit-film, .remove-film {
+  background-color: none;
+  padding: 15px;
+  margin: 0;
+  cursor: pointer;
 }
