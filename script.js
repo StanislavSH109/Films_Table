@@ -92,7 +92,6 @@ function removeFilmFromLocaleStorage(filmId) {
     localStorage.setItem('films', JSON.stringify(films));
 
     renderTable();
-
 }
 
 
