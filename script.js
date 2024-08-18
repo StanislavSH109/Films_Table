@@ -25,6 +25,7 @@ function addFilmToLocaleStorage(film) {
     localStorage.setItem('films', JSON.stringify(films));
     
     renderTable();
+    clearForm();
 }
 
 function renderTable() {
@@ -92,6 +93,16 @@ function removeFilmFromLocaleStorage(filmId) {
     localStorage.setItem('films', JSON.stringify(films));
 
     renderTable();
+
+}
+
+
+function clearForm() {
+    document.querySelector('#title').value = '';
+    document.querySelector('#genre').value = '';
+    document.querySelector('#releaseYear').value = '';
+    document.querySelector('#isWatched').checked = false;
+    document.querySelector('#filmId').value = '';
 }
 
 document.querySelector('#film-form').addEventListener("submit", handleFormSubmit);
