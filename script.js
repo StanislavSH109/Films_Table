@@ -47,13 +47,20 @@ function renderTable() {
             <td>${film.releaseYear}</td>
             <td>${film.isWatched ? "Да" : "Нет"}</td>
             <td class="buttons-action">
-            <button class="edit-film">Редактировать</button>
+            <button class="edit-film" data-id="${film.id}">Редактировать</button>
             <button class="remove-film" data-id="${film.id}">Удалить</button>
             </td>
         `;
 
         filmTableBody.appendChild(row);
-        console.log(film.id);
+
+    });
+
+    document.querySelectorAll('.edit-film').forEach(button => {
+        button.addEventListener('click',  (e) => {
+            const filmId = parseInt(e.target.getAttribute('data-id'))
+            fillFormForEdit(filmId);
+        });
     });
 
     document.querySelectorAll('.remove-film').forEach(button => {
@@ -62,6 +69,20 @@ function renderTable() {
             removeFilmFromLocaleStorage(filmId);
         });
     });
+
+}
+
+function fillFormForEdit(filmId) {
+    const films = JSON.parse(localStorage.getItem('films')) || [];
+    const film = films.find(f => f.id === filmId);
+
+    if (film) {
+        document.querySelector('#title').value = film.title;
+        document.querySelector('#genre').value = film.genre;
+        document.querySelector('#releaseYear').value = film.releaseYear;
+        document.querySelector('#isWatched').checked = film.isWatched;
+        document.querySelector('#filmId').value = film.id; // Скрытое поле для хранения ID фильма
+    }
 
 }
 
