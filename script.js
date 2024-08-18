@@ -14,7 +14,6 @@ function handleFormSubmit(e) {
         id:Date.now()
     }
 
-
     addFilmToLocaleStorage(film)
 }
 
