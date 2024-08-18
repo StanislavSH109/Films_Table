@@ -39,6 +39,8 @@ function renderTable() {
     films.forEach((film) => {
         const arrayUserInput = Object.values(film);
         const row = document.createElement('tr');
+        let buttonId = 0;
+        console.log(document.querySelector('.remove-film'));
         row.innerHTML = `
             <td>${film.title}</td>
             <td>${film.genre}</td>
@@ -46,16 +48,18 @@ function renderTable() {
             <td>${film.isWatched ? "Да" : "Нет"}</td>
             <td class="buttons-action">
             <button class="edit-film">Редактировать</button>
-            <button class="remove-film">Удалить</button>
+            <button class="remove-film" id=${buttonId++}>Удалить</button>
             </td>
         `;
 
         filmTableBody.appendChild(row);
     });
+
 }
 
 document.querySelector('#film-form').addEventListener("submit", handleFormSubmit);
 renderTable();
+
 
 const sortButton =  document.querySelector('.sort-button');
 

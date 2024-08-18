@@ -3,20 +3,21 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <form id="film-form">
-      <label for="title">Название:</label>
-      <input type="text" id="title" name="title"/ required>
+    <form class="film-form" id="film-form">
+      <div class="label-comp">
+        <label for="title">Название:</label>
+        <input type="text" id="title" name="title"/ required>
+      
       <label for="genre">Жанр:</label>
       <input type="text" id="genre" name="genre"/ required>
       <label for="releaseYear">Год:</label>
       <input type="text" id="releaseYear" name="releaseYear"/ required>
-      <label for="isWatched">
+      <label              for="isWatched">
         <input type="checkbox" id="isWatched" name="isWatched" />
         <span class="checkbox-text">Успели посмотреть?</span>
       </label>
-      
-      <!-- <input type="submit" value="Submit"> -->
       <button type="submit" class="button">Добавить фильм</button>
+    </div>
     </form>
     <div class="sort-form">
       <select class="sort" name="sortFilms" id="selectSort">
