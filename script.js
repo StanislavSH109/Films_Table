@@ -10,7 +10,8 @@ function handleFormSubmit(e) {
         title,
         genre,
         releaseYear,
-        isWatched
+        isWatched,
+        id:Date.now()
     }
 
 
@@ -39,8 +40,7 @@ function renderTable() {
     films.forEach((film) => {
         const arrayUserInput = Object.values(film);
         const row = document.createElement('tr');
-        let buttonId = 0;
-        console.log(document.querySelector('.remove-film'));
+
         row.innerHTML = `
             <td>${film.title}</td>
             <td>${film.genre}</td>
@@ -48,18 +48,33 @@ function renderTable() {
             <td>${film.isWatched ? "Да" : "Нет"}</td>
             <td class="buttons-action">
             <button class="edit-film">Редактировать</button>
-            <button class="remove-film" id=${buttonId++}>Удалить</button>
+            <button class="remove-film" data-id="${film.id}">Удалить</button>
             </td>
         `;
 
         filmTableBody.appendChild(row);
+        console.log(film.id);
+    });
+
+    document.querySelectorAll('.remove-film').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const filmId = parseInt(e.target.getAttribute('data-id'));
+            removeFilmFromLocaleStorage(filmId);
+        });
     });
 
 }
 
+function removeFilmFromLocaleStorage(filmId) {
+    let films = JSON.parse(localStorage.getItem('films')) || [];
+    films = films.filter(film => film.id !== filmId);
+    localStorage.setItem('films', JSON.stringify(films));
+
+    renderTable();
+}
+
 document.querySelector('#film-form').addEventListener("submit", handleFormSubmit);
 renderTable();
-
 
 const sortButton =  document.querySelector('.sort-button');
 
