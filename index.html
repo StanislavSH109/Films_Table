@@ -7,12 +7,14 @@
       <div class="label-comp">
         <label for="title">Название:</label>
         <input type="text" id="title" name="title" required/>
-      
-      <label for="genre">Жанр:</label>
-      <input type="text" id="genre" name="genre" required/>
-      <label for="releaseYear">Год:</label>
-      <input type="number" id="releaseYear" name="releaseYear" min="1700" max="2030" required/>
-      <label for="isWatched">
+        <label for="genre">Жанр:</label>
+        <input type="text" id="genre" name="genre" required/>
+        <label for="releaseYear">Год:</label>
+        <input type="number" id="releaseYear" name="releaseYear" min="1700" max="2030" required/>
+        <label for="filmId">
+          <input type="hidden" name="filmId" id="filmId" disabled>
+        </label>
+        <label for="isWatched">
         <input type="checkbox" id="isWatched" name="isWatched" />
         <span class="checkbox-text">Успели посмотреть?</span>
       </label>
