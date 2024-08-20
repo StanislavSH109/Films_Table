@@ -139,11 +139,6 @@ td {
   opacity: 1;
 }  
 
-#film-tbody td, th {
-  vertical-align: unset;
-  text-align: center;
-}
-
 .sort-form {
   display: flex;
   gap: 10px;
@@ -207,4 +202,12 @@ td {
   padding: 15px;
   margin: 0;
   cursor: pointer;
+}
+
+.film-tbody td, th {
+  font-family: "Segoe UI Light", "Arial", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  vertical-align: unset;
+  text-align: center;
 }
