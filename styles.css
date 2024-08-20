@@ -198,10 +198,40 @@ td {
 }
 
 .edit-film, .remove-film {
+  font-family: "Segoe UI Light", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
   background-color: none;
   padding: 15px;
+  min-width: 150px;
   margin: 0;
   cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: .2s ease-in;
+  letter-spacing: 0.02em;
+}
+
+.edit-film {
+  background-color: #444;
+  color: #fff;
+}
+
+.edit-film:hover {
+  transition: .2s ease-in-out;
+  box-shadow: 0 0 3px 0 black;
+}
+
+.remove-film:hover {
+  transition: .2s ease-in-out;
+  box-shadow: 0 0 3px 0 black;
+}
+
+.remove-film {
+  background-color: red;
+  color: whitesmoke;
 }
 
 .film-tbody td, th {
@@ -210,4 +240,8 @@ td {
   font-weight: 700;
   vertical-align: unset;
   text-align: center;
+}
+
+.film-tbody td {
+  background-color: #e2e1e1;
 }
