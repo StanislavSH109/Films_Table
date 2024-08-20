@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(120deg, #D2CCC4 -11.8%, #2F4353 99.99%);
+  background: linear-gradient(120deg, #a09b94 -11.8%, #2F4353 99.99%);
   padding: 30px;
   color: #333;
 }
@@ -157,6 +157,12 @@ td {
   background-color: rgb(131, 119, 119);
   color: #f4f4f4;
   transition: .2s ease-in;
+  box-shadow: 0 0 2px 0 floralwhite;
+}
+
+.sort:hover {
+  transition: .3s ease-out;
+  box-shadow: 0 0 10px 0 floralwhite;
 }
 
 .sort:focus-visible {
@@ -178,6 +184,7 @@ td {
   color: #f4f4f4;
   transition: .3s ease-in;
   letter-spacing: 0.02em;
+  box-shadow: 0 0 2px 0 floralwhite;
 }
 
 .sort-button:hover {
