@@ -1,17 +1,22 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background: linear-gradient(120deg, #D2CCC4 -11.8%, #2F4353 99.99%);
   padding: 30px;
   color: #333;
 }
 
 form { 
-  background-color: #fff;
+  font-family: "Segoe UI Light", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  background-color: #5a5a5a;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 5px #999;
   width: 500px;
   margin: 0 auto;
+  color: #f4f4f4;
 }
 
 .label-comp {
@@ -24,7 +29,12 @@ form {
 .label-comp label {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
+}
+
+.label-comp__checkbox {
+  margin: 0 0 5px 0;
+  gap: 5px;
 }
 
 
@@ -46,20 +56,8 @@ form input[type="number"] {
 
 
 form input[type="checkbox"] {
-  margin-bottom: 20px;
-}
-
-form input[type="submit"] {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
-  border: 0;
-  border-radius: 5px;
-}
-
-form input[type="submit"]:hover {
-  background-color: #444;
-  cursor: pointer;
+  width: 15px;
+  height: 15px;
 }
 
 table {
@@ -86,6 +84,10 @@ td {
 }
 
 .button {
+  font-family: "Segoe UI Light", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 00;
   border: 0;
   border-radius: 8px;
   padding: 14px;
@@ -95,12 +97,18 @@ td {
   transition: .3s ease-in-out; 
   width: 250px;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .button:hover {
+  background-color: #444;
+  transition: .3s ease-in-out;
+  box-shadow: 1px 1px 10px 0 violet;
+}
+
+.button:active {
   background-color: green;
-  transition: .3s;
-  box-shadow: 1px 1px 10px 0 #444;
+  transition: .1s ease-in;
 }
 
 .checkbox-text {
@@ -123,25 +131,41 @@ td {
 
 .sort {
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 22px;
   font-weight: 400;
   font-family: "Verdana", "Arial", sans-serif;
   cursor: pointer;
   margin: 0 0 5px 0;
+  border: none;
+  text-transform: uppercase;
+  background-color: rgb(131, 119, 119);
+  color: #f4f4f4;
+  transition: .3s ease-in;
+}
 
+.sort:hover {
+  transition: .3s ease-in-out;
+  box-shadow: 1px 1px 10px 0 violet;
 }
 
 .sort-button {
-  padding: 10px;
-  background-color: white;
-  font-size: 14px;
+  font-family: "Verdana", "Arial", sans-serif;
+  padding: 14px;
+  font-size: 16px;
   line-height: 22px;
-  cursor: pointer;
-  border: 1px solid black;
-  width: 130px;
-  cursor: pointer;
   margin: 0 0 5px 0;
+  border: none;
+  background-color: rgb(131, 119, 119);
+  cursor:pointer;
+  text-transform: uppercase;
+  color: #f4f4f4;
+  transition: .3s ease-in;
+}
+
+.sort-button:hover {
+  transition: .3s ease-in-out;
+  box-shadow: 0 0 11px 0 floralwhite;
 }
 
 .buttons-action {
